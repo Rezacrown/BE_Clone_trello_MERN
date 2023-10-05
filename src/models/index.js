@@ -7,13 +7,10 @@ const process = require("process");
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/database.js")[env];
-
-// import all models
-const Todos = require("./todos");
-const Items = require("./items");
-
-// semua model wajib di init di file index ini untuk bisa digunakan
-const db = { Todos, Items };
+const db = {
+  Todo: require("./todo"),
+  Item: require("./item"),
+};
 
 let sequelize;
 if (config.use_env_variable) {

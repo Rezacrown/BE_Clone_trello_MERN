@@ -11,9 +11,11 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
-      todos_id: {
+      TodoId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Todos",
           key: "id",

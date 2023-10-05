@@ -1,9 +1,7 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Items extends Model {
+  class Todo extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,24 +9,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Todo.hasMany(models.Item);
     }
   }
-  Items.init(
+  Todo.init(
     {
       name: DataTypes.STRING,
-      todos_id: {
-        type: DataTypes.INTEGER,
-        // cara buat relasi pakai refrence
-        references: {
-          model: 'Todos',
-          key: 'id'
-        }
-      },
     },
     {
       sequelize,
-      modelName: "Items",
+      modelName: "Todo",
     }
   );
-  return Items;
+  return Todo;
 };
