@@ -17,10 +17,14 @@ module.exports = {
       {
         name: "Belajar",
         TodoId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: "Olahraga",
         TodoId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ]);
   },

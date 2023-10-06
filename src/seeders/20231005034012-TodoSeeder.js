@@ -15,9 +15,13 @@ module.exports = {
     await queryInterface.bulkInsert("Todos", [
       {
         name: "Hari ini",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: "Besok",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ]);
   },
