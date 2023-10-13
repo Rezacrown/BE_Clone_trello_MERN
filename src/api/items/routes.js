@@ -6,12 +6,16 @@ const { validate } = require("express-validation");
 const {
   storeItemRequest,
   updateItemRequest,
-  getOneRequest,
+  getOneItemRequest,
   moveItemRequest,
 } = require("./validation");
 
 // declare route
-router.get("/items/:id", validate(getOneRequest, { keyByField: true }), getOne);
+router.get(
+  "/items/:id",
+  validate(getOneItemRequest, { keyByField: true }),
+  getOne
+);
 router.post("/items", validate(storeItemRequest, { keyByField: true }), create);
 router.put(
   "/items/:id",

@@ -8,6 +8,7 @@ const index = async (req, res, next) => {
         model: Item,
         attributes: ["id", "name"],
       },
+      order: [["createdAt"]],
     });
 
     return res.json({ data: result });
@@ -53,12 +54,14 @@ const update = async (req, res, next) => {
     const { id } = req.params;
     const { name } = req.body;
 
-    const result = await Todo.findByPk(id);
+    const result = await Todo.update(
+      { name },
+      {
+        where: { id },
+      }
+    );
 
-    result.name = name;
-    await result.save();
-
-    return res.json({ data: result }).status(200);
+    return res.status(200).json({ data: result });
   } catch (error) {
     next(error);
   }

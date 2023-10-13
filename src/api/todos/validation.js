@@ -12,6 +12,12 @@ module.exports = {
     }),
     params: Joi.object({
       id: Joi.number().required(),
-    })
+    }),
+  },
+
+  getOneTodoRequest: {
+    params: Joi.object({
+      id: Joi.number().required(),
+    }),
   },
 };

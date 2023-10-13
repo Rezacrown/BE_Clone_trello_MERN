@@ -82,9 +82,9 @@ module.exports = {
       });
 
       item.TodoId = todo.id;
-      await item.save();
+      const result = await item.save();
 
-      return res.status(200).json({ data: item });
+      return res.status(200).json({ data: result });
     } catch (error) {
       next(error);
     }
